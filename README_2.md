@@ -31,18 +31,18 @@
 - `cd /web/html/nginx-2420` and `sudo chmod +x hello-server` to make the backend file executable
 - `sudo vim /etc/systemd/system/backend.service` to create a new service
 - put these commands to the service file
-    ``` bash
-    [Unit]
-    Description=Backend Service
-    After=network.target
+``` bash
+[Unit]
+Description=Backend Service
+After=network.target
 
-    [Service]
-    ExecStart=/web/html/nginx-2420/hello-server
-    Restart=always
+[Service]
+ExecStart=/web/html/nginx-2420/hello-server
+Restart=always
 
-    [Install]
-    WantedBy=multi-user.target
-    ```
+[Install]
+WantedBy=multi-user.target
+```
 - `sudo systemctl daemon-reload`
 - `sudo systemctl enable --now backend`
 - `sudo systemctl status backend`
